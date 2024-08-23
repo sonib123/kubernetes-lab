@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: yellow
+spec:
+  containers:
+    - name: yellow
+      image: busybox
+      volumeMounts:
+        - mountPath: /data
+          name: yellow-storage
+  volumes:
+    - name: yellow-storage
+      persistentVolumeClaim:
+        claimName: pvc-yellow
